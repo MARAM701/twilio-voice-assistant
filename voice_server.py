@@ -14,7 +14,7 @@ load_dotenv()
 
 # Configuration
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-PORT = int(os.getenv('PORT', 8081))
+PORT = int(os.getenv('PORT', 10000))  # Render assigns this port via environment variable
 SYSTEM_MESSAGE = "تحدث بالعربية فقط. كن مساعدًا ودودًا وتجاوب بشكل طبيعي مع المتصل."
 VOICE = 'alloy'
 LOG_EVENT_TYPES = [
