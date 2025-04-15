@@ -1,3 +1,6 @@
+fastapi
+uvicorn
 websockets
-openai
+twilio
 python-dotenv
+openai
