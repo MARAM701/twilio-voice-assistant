@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: twilio-voice-assistant
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python voice_server.py
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
