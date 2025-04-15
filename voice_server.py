@@ -9,6 +9,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.websockets import WebSocketDisconnect
 from twilio.twiml.voice_response import VoiceResponse, Connect, Say, Stream
 from dotenv import load_dotenv
+from websockets.headers import Headers  # Add this import
 
 load_dotenv()
 
@@ -53,12 +54,14 @@ async def handle_media_stream(websocket: WebSocket):
     print("Client connected")
     await websocket.accept()
 
+    # CHANGE HERE: Create Headers object instead of using dictionary
+    headers = Headers()
+    headers["Authorization"] = f"Bearer {OPENAI_API_KEY}"
+    headers["OpenAI-Beta"] = "realtime=v1"
+
     async with websockets.connect(
         'wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-10-01',
-        extra_headers={
-            "Authorization": f"Bearer {OPENAI_API_KEY}",
-            "OpenAI-Beta": "realtime=v1"
-        }
+        extra_headers=headers
     ) as openai_ws:
         await initialize_session(openai_ws)
 
