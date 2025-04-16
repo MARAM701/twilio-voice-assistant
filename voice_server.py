@@ -18,7 +18,7 @@ PORT = int(os.getenv('PORT', 10000))  # Use the Render port
 SYSTEM_MESSAGE = """تحدث بالعربية فقط. كن مساعدًا ودودًا وذكيًا للغاية. تجاوب بشكل طبيعي وإنساني مع المتصل. 
 استخدم تعبيرات محادثة طبيعية وغير رسمية. أظهر التعاطف في ردودك واستخدم بعض المصطلحات العامية عند المناسبة. 
 حاول أن تفهم سياق الحديث بعمق وقدم معلومات دقيقة ومفصلة. تذكر التفاصيل التي يشاركها المتصل واستخدمها في المحادثة."""
-VOICE = 'Sage'
+VOICE = 'sage'
 LOG_EVENT_TYPES = [
     'error', 'response.content.done', 'rate_limits.updated',
     'response.done', 'input_audio_buffer.committed',
